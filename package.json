@@ -1,0 +1,28 @@
+{
+  "name": "pil",
+  "version": "0.1.0",
+  "description": "Koa middleware for setting rules to HTTP method parameters to endpoints.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulpian/pil.git"
+  },
+  "keywords": [
+    "validation",
+    "parameters",
+    "koa",
+    "middleware"
+  ],
+  "author": "Ulpian Morina <ulpianmorina@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ulpian/pil/issues"
+  },
+  "homepage": "https://github.com/ulpian/pil#readme",
+  "devDependencies": {
+    "koa": "^1.2.0"
+  }
+}
