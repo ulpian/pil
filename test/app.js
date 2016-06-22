@@ -5,7 +5,6 @@
 'use strict';
 
 let koa = require('koa'),
-    mount = require('koa-mount'),
     bodyParser = require('koa-bodyparser'),
     pil = require('../lib/pil'),
     app = koa()
