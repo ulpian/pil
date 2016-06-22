@@ -2,6 +2,8 @@
 Koa middleware for setting rules HTTP method parameters to endpoints.
 Make parameter validation as easy-as-pil
 
+`npm install pil`
+
 <img src="media/redpillbluepill.png"><br>
 
 
