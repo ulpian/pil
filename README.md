@@ -40,27 +40,29 @@ let test = new Router()
 app.use(mount('/', test.middleware()))
 
 test.get('/get',
-pil.set([
-    {
-        name: "foo",
-        required: true,
-        type: "string",
-        error: {
-            missing: "You need to provide foo otherwise the world will break"
-        }
-    },{
-        name: "email",
-        regex: /@/g
-    }]),
+    pil.set([
+        {
+            name: "foo",
+            required: true,
+            type: "string",
+            error: {
+                missing: "You need to provide foo otherwise the world will break"
+            }
+        },{
+            name: "email",
+            regex: /@/g
+        }]),
 function * () {
     let foo = this.request.params.foo,
         email = this.request.params.email
-    
+
     this.body = "hello world"
 })
 
 app.listen(3001)
 ```
+
+Check examples in *test/* folder in both *app.js* for pure koa application using pil or *rapp.js* for routed app example like this quickstart.
 
 * Must be running node with `v4.3.*` or higher
 

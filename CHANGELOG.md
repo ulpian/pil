@@ -8,14 +8,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Checking for non-bodyparsed requests on POST/PUT
 
 
-## [0.2.1] - PROPOSED
+## [0.2.2] - PROPOSED
 
 ### Add
 - Support deep objects
 
 ### Update
 - Extend tests to cover more cases
-- Extend documentation on README
+- Extend documentation on README for examples and development guides
 
 
 ## [0.1.0] - 2016-06-22
