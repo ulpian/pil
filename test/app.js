@@ -9,9 +9,6 @@ let koa = require('koa'),
     pil = require('../lib/pil'),
     app = koa()
 
-// pil
-let url = require('url')
-
 // Capturing post body
 app.use(bodyParser())
 
