@@ -19,6 +19,49 @@ Set parameter options;
 | type | String | Parameter data type; boolean - number - string - object - array. |
 | error | Object | Set custom error messages in specific scenarios. |
 
+## Quickstart
+
+Here is an example application using pil to set parameters we want, we can be sure we will receive parameters in `request.params` as pil handles everything else.
+
+```javascript
+'use strict';
+
+let koa = require('koa'),
+    mount = require('koa-mount'),
+    Router = require('koa-router'),
+    bodyParser = require('koa-bodyparser'),
+    pil = require('pil'),
+    app = koa()
+
+app.use(bodyParser())
+
+let test = new Router()
+
+app.use(mount('/', test.middleware()))
+
+test.get('/get',
+pil.set([
+    {
+        name: "foo",
+        required: true,
+        type: "string",
+        error: {
+            missing: "You need to provide foo otherwise the world will break"
+        }
+    },{
+        name: "email",
+        regex: /@/g
+    }]),
+function * () {
+    let foo = this.request.params.foo,
+        email = this.request.params.email
+    
+    this.body = "hello world"
+})
+
+app.listen(3001)
+```
+
 * Must be running node with `v4.3.*` or higher
 
 * For POST / PUT methods pil works with works with the official `koa-bodyparser` best or other body parsing libraries which set data to `this.request.body`. This libraries will extend to support pure koa post requests.
