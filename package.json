@@ -1,6 +1,6 @@
 {
   "name": "pil",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Koa middleware for setting rules to HTTP method parameters to endpoints.",
   "main": "index.js",
   "scripts": {
