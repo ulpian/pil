@@ -6,13 +6,8 @@ let request = require('co-supertest').agent(app.listen())
 let expect = require('chai').expect
 
 // Test different routes
-describe('Test API routes', () => {
+describe('Test simple koa application', () => {
     let opts = {}
-
-    // Authenticate
-    before(function * () {
-        // Set some various parameter options
-    })
 
     // Root page
     describe('/', function () {
@@ -33,6 +28,10 @@ describe('Test API routes', () => {
             let res = yield request.get('/get/?foo=bar&hello=1')
                                 .expect(200)
                                 .end()
+
+            // Check context is set
+            expect(res.body).to.be.a('object')
+            expect(res.body).to.have.all.keys('foo','hello')
         })
 
         it('should test a POST request', function * () {
@@ -44,11 +43,10 @@ describe('Test API routes', () => {
                                 })
                                 .expect(200)
                                 .end()
-        })
-    })
 
-    after(() => {
-        // Wipe token, data
-        opts = null
+            // Check context is set
+            expect(res.body).to.be.a('object')
+            expect(res.body).to.have.all.keys('post','hey','arr')
+        })
     })
 })

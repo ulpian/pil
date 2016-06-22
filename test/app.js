@@ -1,4 +1,7 @@
-// test app (tapp) - Sample koajs application with pil test
+/**
+ * Example Koa server with using simply check for routing
+ *
+ */
 'use strict';
 
 let koa = require('koa'),
@@ -14,17 +17,18 @@ let url = require('url')
 app.use(bodyParser())
 
 /*
-* Setting parameters that are not required
+* Looking for optional parameter
 */
-app.use(pil.set([{
-    name: 'nothing',
-    type: 'number',
-    required: false
-}]))
-
-// Example root parameter GET
 app.use(function * (next) {
     if (this.request.url === '/') {
+
+        // Check parameters
+        yield pil.set([{
+            name: 'nothing',
+            type: 'number',
+            required: false
+        }])
+
         this.body = "hello world"
     } else {
         yield next
@@ -32,51 +36,50 @@ app.use(function * (next) {
 })
 
 /*
-* Looking for 'foo' and 'bar parameters on GET request
+* Looking for parameters with different level of options on GET request
 */
-app.use(pil.set([
-    {
-        name: "foo",
-        required: true,
-        type: "string",
-        error: {
-            missing: "You need to provide foo otherwise the world will break"
-        }
-    },{
-        name: "hello",
-        type: "number"
-    }
-]))
-
-// Example koa GET request
 app.use(function * (next) {
     // Checking for get param
     let getRoute = this.request.url.match(/\/get\//g)
     if (getRoute && getRoute.length !== 0 && this.request.method === 'GET') {
-        this.body = "Get endpoint"
+
+        // Check parameters
+        yield pil.set([{
+            name: "foo",
+            required: true,
+            type: "string",
+            error: {
+                missing: "You need to provide foo otherwise the world will break"
+            }
+        },{
+            name: "hello",
+            type: "number"
+        }])
+
+        this.body = this.request.params
     } else {
         yield next
     }
 })
 
 /*
-* Looking for 'foo' and 'bar parameters on POST request
+* Looking for different types parameters on POST request
 */
-app.use(pil.set([
-    {
-        name: "post"
-    },{
-        name: "hey",
-        type: "object"
-    },{
-        name: "arr",
-        type: "array"
-    }
-]))
-
 app.use(function * (next) {
     if (this.request.url === '/post' && this.request.method === 'POST') {
-        this.body = "Post endpoint"
+
+        // Check parameters
+        yield pil.set([{
+            name: "post"
+        },{
+            name: "hey",
+            type: "object"
+        },{
+            name: "arr",
+            type: "array"
+        }])
+
+        this.body = this.request.params
     } else {
         yield next
     }
