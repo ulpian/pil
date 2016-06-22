@@ -53,6 +53,9 @@ app.use(function * (next) {
         },{
             name: "hello",
             type: "number"
+        },{
+            name: "email",
+            regex: /@/g
         }])
 
         this.body = this.request.params

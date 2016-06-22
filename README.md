@@ -14,9 +14,10 @@ Set parameter options;
 | Key | Type | Description |
 | --- | --- | --- |
 | name | String | Name of your parameter, you must include this in your options. |
-| required | Boolean | Required if true, optional if false - true by default |
-| type | String | Parameter data type; boolean - number - string - object - array |
-| error | Object | Set custom error messages in specific scenarios |
+| required | Boolean | Required if true, optional if false - true by default. |
+| regex | Object (regex) | A regular expression to match with if parameter is string. |
+| type | String | Parameter data type; boolean - number - string - object - array. |
+| error | Object | Set custom error messages in specific scenarios. |
 
 * Must be running node with `v4.3.*` or higher
 

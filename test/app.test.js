@@ -25,13 +25,13 @@ describe('Test simple koa application', () => {
         })
 
         it('should test a GET request', function * () {
-            let res = yield request.get('/get/?foo=bar&hello=1')
+            let res = yield request.get('/get/?foo=bar&hello=1&email=test@test.com')
                                 .expect(200)
                                 .end()
 
             // Check context is set
             expect(res.body).to.be.a('object')
-            expect(res.body).to.have.all.keys('foo','hello')
+            expect(res.body).to.have.all.keys('foo','hello','email')
         })
 
         it('should test a POST request', function * () {
