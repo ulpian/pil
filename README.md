@@ -1,4 +1,6 @@
 # pil
+
+[![Join the chat at https://gitter.im/ulpian/pil](https://badges.gitter.im/ulpian/pil.svg)](https://gitter.im/ulpian/pil?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Koa middleware for setting rules HTTP method parameters to endpoints.
 Make parameter validation as easy-as-pil
 
