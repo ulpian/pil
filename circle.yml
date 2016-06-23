@@ -1,0 +1,10 @@
+machine:
+
+  timezone:
+    Europe/London # Set the timezone
+
+  node:
+    version: 4.3.2
+
+  post:
+    - npm install -g npm@3.8.6
