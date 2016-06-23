@@ -1,11 +1,12 @@
-# pil
+# pil 
 Koa middleware for setting rules HTTP method parameters to endpoints.
 Make parameter validation as easy-as-pil
 
 `npm install pil`
 
-<img src="media/redpillbluepill.png"><br>
+[![CircleCI](https://circleci.com/gh/ulpian/pil/tree/master.svg?style=svg)](https://circleci.com/gh/ulpian/pil/tree/master)
 
+<br><img src="media/redpillbluepill.png"><br>
 
 ### pil.set({opts})
 
